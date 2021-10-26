@@ -1,17 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['title']
+  static targets = ['title', 'description']
 
   connect() {
-    console.log('builder is connected')
     this.refresh = this.refresh.bind(this)
+    this.refresh()
   }
 
   refresh() {
-    console.log(this.titleTarget.value)
+    const previewTitle = document.querySelector('#preview_title')
+    previewTitle.innerHTML = this.titleTarget.value
 
-    const mailerTitle = document.querySelector('#mailer_title')
-    mailerTitle.innerHTML = this.titleTarget.value
+    const previewDescript = document.querySelector('#preview_description')
+    previewDescript.innerHTML = this.descriptionTarget.value
   }
 }
