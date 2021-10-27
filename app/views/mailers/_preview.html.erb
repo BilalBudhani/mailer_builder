@@ -1,4 +1,23 @@
 <div>
-  <h3 id="preview_title" class="mb-2 text-2xl font-bold"></h3>
+  <h3 id="preview_title" class="mb-1 text-2xl font-bold"></h3>
   <p id="preview_description" class="py-2 text-xl"></p>
+
+  <div class="flex items-center justify-center mt-4 text-lg" id="preview_referral_link">
+    <a class="text-blue-600 underline" href="#">https://bit.ly/abcd</a>
+  </div>
+
+  <div class="flex items-center justify-center mt-4 space-x-2" id="preview_social_sharing">
+    <span class="p-2 text-white bg-blue-600">
+      <%= inline_svg_tag("facebook") %>
+    </span>
+    <span class="p-2 text-white bg-blue-600">
+      <%= inline_svg_tag("twitter") %>
+    </span>
+    <span class="p-2 text-white bg-blue-600">
+      <%= inline_svg_tag("message") %>
+    </span>
+    <span class="p-2 text-white bg-blue-600">
+      <%= inline_svg_tag("share") %>
+    </span>
+  </div>
 </div>
