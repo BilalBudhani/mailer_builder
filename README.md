@@ -1,24 +1,14 @@
-# README
+# Mailer Builder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Simple mailer builder app built using Stimulus.js and TailwindCSS with preview option
 
-Things you may want to cover:
+### How to run this repo
 
-* Ruby version
+- `bundle install`
+- `yarn install`
+- `rails db:create db:migrate`
+- `foreman start`
 
-* System dependencies
+### LICENSE
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+MIT
