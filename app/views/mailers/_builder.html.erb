@@ -1,6 +1,10 @@
 <main class="flex w-full min-h-screen" data-controller="builder">
   <section class="flex-1">
     <%= render partial: "form", locals: {mailer: mailer} %>
+    <div class="flex flex-col items-center mt-4">
+      <em>OR</em>
+      <%= link_to "Start Fresh", new_mailer_path, class:"text-sm text-blue-600" %>
+    </div>
   </section>
   <section class="flex-1 bg-gray-100">
     <div data-controller="tabs" data-tabs-active-tab="border-b-4 border-red-400" class="py-8">
