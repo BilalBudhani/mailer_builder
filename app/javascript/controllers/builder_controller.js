@@ -58,7 +58,8 @@ export default class extends Controller {
       description: this.descriptionTarget.value,
       descriptionColor: this.descriptionColorTarget.value,
       socialSharing: this.socialSharingTarget.checked,
-      referralLink: this.referralLinkTarget.checked
+      referralLink: this.referralLinkTarget.checked,
+      bannerUrl: document.querySelector('#preview_banner').src
     })
   }
 
