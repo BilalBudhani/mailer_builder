@@ -1,8 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 import { template, unescape } from "lodash"
+import { DirectUpload } from "@rails/activestorage"
 
 export default class extends Controller {
-  static targets = ['title', 'description', 'socialSharing', 'referralLink', 'titleColor', 'descriptionColor']
+  static targets = ['title', 'description', 'socialSharing', 'referralLink', 'titleColor', 'descriptionColor', 'banner']
 
   connect() {
     this.refresh = this.refresh.bind(this)
@@ -37,6 +38,13 @@ export default class extends Controller {
       previewReferral.classList.add('hidden')
     }
 
+    // Banner
+    if (this.bannerTarget.files.length > 0) {
+      const bannerUrl = URL.createObjectURL(this.bannerTarget.files[0])
+      const previewBanner = document.querySelector('#preview_banner')
+      previewBanner.src = bannerUrl
+    }
+
     this.generateTemplate()
   }
 
@@ -51,6 +59,23 @@ export default class extends Controller {
       descriptionColor: this.descriptionColorTarget.value,
       socialSharing: this.socialSharingTarget.checked,
       referralLink: this.referralLinkTarget.checked
+    })
+  }
+
+  upload() {
+    const upload = new DirectUpload(this.bannerTarget.files[0], this.bannerTarget.dataset.directUploadUrl)
+    upload.create((error, blob) => {
+      if (error) {
+        console.error(error)
+      } else {
+        const hiddenField = document.createElement('input')
+        hiddenField.setAttribute("id", "banner_url")
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("value", blob.signed_id);
+        hiddenField.name = this.bannerTarget.name
+        document.querySelector('form').appendChild(hiddenField)
+        this.refresh()
+      }
     })
   }
 }

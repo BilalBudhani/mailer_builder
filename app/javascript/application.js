@@ -3,7 +3,6 @@ import "@hotwired/turbo-rails"
 import { Tabs, Toggle } from "tailwindcss-stimulus-components"
 import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 import { Application } from "@hotwired/stimulus"
-
 const application = Application.start()
 
 // Configure Stimulus development experience

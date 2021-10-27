@@ -30,6 +30,6 @@ class MailersController < ApplicationController
 
   private
   def mailer_params
-    params.require(:mailer).permit(:title, :description, :social_sharing, :referral_link, :title_color, :description_color)
+    params.require(:mailer).permit(:title, :description, :social_sharing, :referral_link, :title_color, :description_color, :banner)
   end
 end

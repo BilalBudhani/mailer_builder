@@ -10,6 +10,10 @@
     </ul>
     <div class="hidden px-12 py-4 my-4" data-tabs-target="panel">
       <div class="flex flex-col mb-4">
+        <%= f.label :banner, class: "font-medium" %>
+        <%= f.file_field :banner, direct_upload: true, data: {'builder-target': 'banner', action: 'change->builder#upload'} %>
+      </div>
+      <div class="flex flex-col mb-4">
         <%= f.label :title, class: "font-medium" %>
         <%= f.text_field :title, data: {'builder-target': 'title', action: 'input->builder#refresh'} %>
       </div>

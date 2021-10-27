@@ -19,6 +19,7 @@
 #
 class Mailer < ApplicationRecord
   validates_presence_of :title
+  has_one_attached :banner
 
   before_create :generate_uid
 
