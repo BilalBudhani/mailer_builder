@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :mailers
 
-  root "mailers#new"
+  root "pages#main"
 end

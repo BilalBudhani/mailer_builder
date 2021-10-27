@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 2021_10_26_095106) do
 
   create_table "mailers", force: :cascade do |t|
     t.string "title", null: false
-    t.string "title_styles"
+    t.string "title_color", default: "#333"
     t.text "description"
-    t.string "description_styles"
+    t.string "description_color", default: "#333"
     t.boolean "referral_link", default: true, null: false
     t.boolean "social_sharing", default: true, null: false
     t.string "uid", null: false

@@ -2,8 +2,8 @@ class MailersController < ApplicationController
 
   def new
     @mailer = Mailer.new
-    @mailer.title = "This is where you title should be"
-    @mailer.description = "Here you can describe whatever you want to send to your mailer, be creative and don't overthing :)"
+    @mailer.title = "Share with friends, get cool stuff!"
+    @mailer.description = "Have friends who'd love our newsletter too? Give them your unique referral link (below) and get an awesome reward when they subscribe."
   end
 
   def show
@@ -30,6 +30,6 @@ class MailersController < ApplicationController
 
   private
   def mailer_params
-    params.require(:mailer).permit(:title, :description, :social_sharing, :referral_link)
+    params.require(:mailer).permit(:title, :description, :social_sharing, :referral_link, :title_color, :description_color)
   end
 end

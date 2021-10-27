@@ -1,12 +1,13 @@
-<div>
+<div class="flex flex-col items-center">
+  <img src="https://picsum.photos/600/300" class="p-2 mb-2 rounded" id="preview_banner" />
   <h3 id="preview_title" class="mb-1 text-2xl font-bold"></h3>
-  <p id="preview_description" class="py-2 text-xl"></p>
+  <p id="preview_description" class="py-2 text-xl text-center"></p>
 
   <div class="flex items-center justify-center mt-4 text-lg" id="preview_referral_link">
     <a class="text-blue-600 underline" href="#">https://bit.ly/abcd</a>
   </div>
 
-  <div class="flex items-center justify-center mt-4 space-x-2" id="preview_social_sharing">
+  <div class="flex items-center justify-center mt-4 space-x-4" id="preview_social_sharing">
     <span class="p-2 text-white bg-blue-600">
       <%= inline_svg_tag("facebook") %>
     </span>
