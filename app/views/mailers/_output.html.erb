@@ -1,1 +1,8 @@
-Output is here
+<div class="flex flex-col items-center w-full">
+  <label for="mailer_output">Copy/Paste below code</label>
+  <textarea id="mailer_output" class="w-full" style="height: 300px"></textarea>
+</div>
+
+<template id="output_template">
+<%= render file: ejs_template('mailers/_output_template') %>
+</template>

@@ -1,10 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
+import { template, unescape } from "lodash"
 
 export default class extends Controller {
   static targets = ['title', 'description', 'socialSharing', 'referralLink', 'titleColor', 'descriptionColor']
 
   connect() {
     this.refresh = this.refresh.bind(this)
+    this.generateTemplate = this.generateTemplate.bind(this)
     this.refresh()
   }
 
@@ -35,5 +37,20 @@ export default class extends Controller {
       previewReferral.classList.add('hidden')
     }
 
+    this.generateTemplate()
+  }
+
+  generateTemplate() {
+    const outputTpl = document.querySelector('#output_template')
+    const compiled = template(unescape(outputTpl.innerHTML))
+    const outputEl = document.querySelector('#mailer_output')
+    outputEl.innerHTML = compiled({
+      title: this.titleTarget.value,
+      titleColor: this.titleColorTarget.value,
+      description: this.descriptionTarget.value,
+      descriptionColor: this.descriptionColorTarget.value,
+      socialSharing: this.socialSharingTarget.checked,
+      referralLink: this.referralLinkTarget.checked
+    })
   }
 }
